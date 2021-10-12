@@ -65,6 +65,20 @@ class User extends ActiveRecordEntity
         return $this->authToken;
     }
 
+    public function getRole(): string
+    {
+        return $this->role;
+    }
+
+    public function isAdmin(): string
+    {
+        if ($this->role === 'admin'){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function signUp(array $userData): User
     {
         if (empty($_POST['nickname'])) {
