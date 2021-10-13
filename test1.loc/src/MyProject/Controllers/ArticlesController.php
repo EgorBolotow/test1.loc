@@ -7,6 +7,7 @@ use MyProject\Exceptions\InvalidArgumentException;
 use MyProject\Exceptions\NotFoundException;
 use MyProject\Exceptions\UnauthorizedException;
 use MyProject\Models\Articles\Article;
+use MyProject\Models\Comments\Comment;
 use MyProject\Models\Users\User;
 use MyProject\View\View;
 
@@ -21,8 +22,11 @@ class ArticlesController extends BaseController
             return;
         }
 
+        $comments = Comment::getCommentsByArticleId($articleId);
+
         $this->view->renderHtml('main/view.php', [
-            'article' => $article
+            'article' => $article,
+            'comments' => $comments
         ]);
     }
 

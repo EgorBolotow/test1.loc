@@ -1,6 +1,8 @@
 <?php
 
 return [
+    '~^articles/(\d+)/comments$~' => [\MyProject\Controllers\CommentsController::class, 'comment'],
+    '~^articles/(\d+)/comments/(\d+)/edit$~' => [\MyProject\Controllers\CommentsController::class, 'editComment'],
     '~^articles/(\d+)/edit$~' => [\MyProject\Controllers\ArticlesController::class, 'edit'],
     '~^articles/(\d+)/delete$~' => [\MyProject\Controllers\ArticlesController::class, 'delete'],
     '~^articles/add$~' => [\MyProject\Controllers\ArticlesController::class, 'add'],
